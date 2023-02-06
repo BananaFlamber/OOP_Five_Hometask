@@ -23,6 +23,7 @@ public class Main {
                 break;
             } catch (InputMismatchException e) {
                 System.err.println("Возникла ошибка при создании карты: " + e.getMessage());
+                userInput.nextLine();
             } catch (Throwable e) {
                 System.err.println("Возникла ошибка на стороне сервера: " + e.getMessage());
                 System.exit(1);
@@ -53,7 +54,7 @@ public class Main {
 
     private static class CommandManager {
 
-        private final RobotMap map;
+        private final InterfaceRobotMap map;
         private final Map<String, CommandExecutor> commands;
 
         public CommandManager(RobotMap map) {
